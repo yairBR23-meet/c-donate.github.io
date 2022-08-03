@@ -66,7 +66,10 @@ def sign_up():
 
 @app.route('/home', methods=['GET', 'POST'])
 def home():
-    return render_template('home.html')
+    posts = db.child('Posts').get().val()
+    users = db.child('Users').child(login_session['user']['localId']).get().val()['username']
+    emails = db.child('Users').child(login_session['user']['localId']).get().val()['email']
+    return render_template('home.html', posts = posts, users = users, emails = emails)
 
 
 
@@ -100,8 +103,8 @@ def signout():
 
 @app.route('/view_tweet')
 def view_tweet():
-    articles = db.child('Articles').get().val()
-    return render_template('view_tweet.html', articles=articles)
+    posts = db.child('Posts').get().val()
+    return render_template('view_tweet.html', posts = posts)
 
 
 if __name__ == '__main__':

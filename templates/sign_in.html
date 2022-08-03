@@ -13,45 +13,123 @@
 
 	<!-- Latest compiled JavaScript -->
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <style>
+        body {
+          background-image: url('../static/assets/black.jpg');
+        }
+        h4{
+            background-color: darkred;
+        }
+        #p1{
+            background-color: greenyellow;
+        }
+
+
+        .glow-on-hover {
+            width: 220px;
+            height: 50px;
+            border: none;
+            outline: none;
+            color: #fff;
+            background: #111;
+            cursor: pointer;
+            position: relative;
+            z-index: 0;
+            border-radius: 10px;
+        }
+
+        .glow-on-hover:before {
+            content: '';
+            background: linear-gradient(45deg, #ff0000, #ff7300, #fffb00, #48ff00, #00ffd5, #002bff, #7a00ff, #ff00c8, #ff0000);
+            position: absolute;
+            top: -2px;
+            left:-2px;
+            background-size: 400%;
+            z-index: -1;
+            filter: blur(5px);
+            width: calc(100% + 4px);
+            height: calc(100% + 4px);
+            animation: glowing 20s linear infinite;
+            opacity: 0;
+            transition: opacity .3s ease-in-out;
+            border-radius: 10px;
+        }
+
+        .glow-on-hover:active {
+            color: #000
+        }
+
+        .glow-on-hover:active:after {
+            background: transparent;
+        }
+
+        .glow-on-hover:hover:before {
+            opacity: 1;
+        }
+
+        .glow-on-hover:after {
+            z-index: -1;
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: #111;
+            left: 0;
+            top: 0;
+            border-radius: 10px;
+        }
+
+        @keyframes glowing {
+            0% { background-position: 0 0; }
+            50% { background-position: 400% 0; }
+            100% { background-position: 0 0; }
+        }
+
+
+    </style>
+
 </head>
 <body>
-    <form method="post" action="/">
-        <!-- Heading -->
-        <h4 style="text-align: center;">
+   <form method="post" action="/">
+
+        <h4 style="text-align: center;" >
         Log in to your account
         </h4>
 
-        <!-- Subheading -->
-        <p style="text-align: center;">
-        Please fill up your information below to sign in.
-        </p>
 
-        <!-- Email -->
         <div style="text-align: center;">
-            <label>Email address</label>
+            <label id="p1" style="text-align: center;" id="p1">
+            Please fill up your information below to sign in.
+            </label> 
+        </div>
+
+
+
+        <div style="text-align: center;">
+            <label id="p1">Email address</label>
             <div>
                 <input type="email"  name="email" id="emailStr" required>
             </div>
         </div>
         <br>
 
-        <!-- Password -->
+
         <div style="text-align: center;">
-            <label>Password</label>
+            <label id="p1">Password</label>
             <div>
                 <input type="password"  name="password" minlength="6">
             </div>
         </div>
         <br>
 
-        <!-- Button -->
+
         <div style="text-align: center;">
-            <input type="submit", value="sign in" />
+            <input type="submit", value="sign in" class="glow-on-hover" />
         </div>
     </form>
     <br>
-    <div style="text-align: center;"><a href="/signup"><button>register</button></a></div>
-    
-    <a href="/signout"><button>signout</button></a>
+    <div style="text-align: center;"><a href="/sign_up"><button button class="glow-on-hover">register</button></a></div>
+    <br>
+    <div style="text-align: center;"><a href="/signout"><button class="glow-on-hover">signout</button></a></div>
 </body>
 </html>

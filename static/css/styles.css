@@ -4557,6 +4557,7 @@ textarea.form-control-lg {
 
 .card-text:last-child {
   margin-bottom: 0;
+  color: black;
 }
 
 .card-link + .card-link {
@@ -11286,3 +11287,11 @@ textarea.form-control-lg {
     display: none !important;
   }
 }
+
+
+
+
+
+
+
+
