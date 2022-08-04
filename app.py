@@ -19,12 +19,6 @@ auth = firebase.auth()
 db = firebase.database()
 
 
-app = Flask(__name__)
-
-app.config['SECRET_KEY'] = "Your_secret_string"
-
-
-
 app = Flask(__name__, template_folder='templates', static_folder='static')
 app.config['SECRET_KEY'] = 'super-secret-key'
 
