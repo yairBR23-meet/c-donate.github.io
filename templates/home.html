@@ -143,13 +143,13 @@
                             <h2 class="card-title">{{posts[i]["name"]}}</h2>
                             <p class="card-text">{{posts[i]["description"]}}</p>
                         </div>
-                        <div class="card-footer"><button class="btn btn-primary btn-sm" id="myBtn">more info</button></div>
+                        <div class="card-footer"><button class="btn btn-primary btn-sm myBtn" id="myBtn-{{i}}">more info</button></div>
                     </div>
                 </div>
                 {%endfor%}
                 {%for i in posts%}
                 </div>
-                    <div id="myModal" class="modal">
+                    <div id="myModal-{{i}}" class="modal">
 
                       <div class="modal-content">
                         <div class="modal-header">
@@ -182,12 +182,16 @@
             color: #ffffff;   */
         }
         </style>
+
+        {% for i in posts %}
+
         <script>
+
             // Get the modal
-            var modal = document.getElementById("myModal");
+            var modal = document.getElementById("myModal-{{i}}");
 
             // Get the button that opens the modal
-            var btn = document.getElementById("myBtn");
+            var btn = document.getElementById("myBtn-{{i}}");
 
             // Get the <span> element that closes the modal
             var span = document.getElementsByClassName("close")[0];
@@ -208,6 +212,9 @@
                 modal.style.display = "none";
               }
             }
-</script>
+        </script>
+        {%endfor%}
+
+
     </body>
 </html>
