@@ -7,10 +7,11 @@ import pyrebase
 
 
 # print(web3.isConnected())
-# from web3 import Web3
+# from web3 import Web3, HTTPProvider
 
 # # infura_url = 'https://mainnet.infura.io/v3/9e7bd8283d1d4879932988ab9907f137'
 # web3 = Web3(Web3.HTTPProvider('https://mainnet.infura.io/v3/9e7bd8283d1d4879932988ab9907f137'))
+
 
 # print(web3.isConnected())
 
